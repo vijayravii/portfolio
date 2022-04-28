@@ -10,6 +10,10 @@
 body {
 	font-family : segoe ui;
 }
+.top-logo {
+	filter: brightness(1000%);
+}
+
 .covid-alert{
 	display: flex;
 	justify-content: center;
@@ -359,6 +363,44 @@ font-size : 230%;
 }
 .container-5 img:hover {
 	transform : scale(1.1);
+}
+
+/* Color Border */
+
+.color-border {
+	position: relative;
+	background: linear-gradient(0deg, #000, #272727);
+	z-index: 1;
+}
+
+.color-border:before, .color-border:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 2px);
+	height: calc(100% + 4px);
+	animation: steam 20s linear infinite;	
+	z-index: -1;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+.color-border:after {
+	filter: blur(50px);
 }
 
 /* Home Footer */

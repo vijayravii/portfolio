@@ -21,6 +21,7 @@ function topFunction() {
 var navbar = document.getElementById("navbar");
 var nav = document.querySelector(".navbar");
 var navCol = document.querySelector(".navbar-white");
+var logo = document.getElementById("logo");
 
 function navFunction() {
   if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 20) {
@@ -28,11 +29,13 @@ function navFunction() {
 	nav.style.padding = "0px";
 	navCol.classList.remove("navbar-white");
 	navCol.classList.add("navbar-yellow");
+  logo.classList.remove("top-logo");
   } else {
     nav.style.background = "rgba(255, 255, 255,0.5)";
 	nav.style.padding = "5px";
 	navCol.classList.remove("navbar-yellow");
 	navCol.classList.add("navbar-white");
+  logo.classList.add("top-logo");
   }
 }
 
