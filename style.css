@@ -498,7 +498,7 @@ footer {
 	flex-direction : column;
 	align-items : center;
 	justify-content : center;
-	width : 800px;
+	width : 100%;
 	border-radius : 5px;
 	transition : 0.3s;
 	/* height : 100px; */
@@ -634,7 +634,7 @@ footer {
 	color : red;
 }
 
-@media screen and (max-width : 600px){
+@media screen and (max-width : 500px){
 	*{
 		margin : 0;
 		padding : 0;
@@ -732,6 +732,13 @@ footer {
 		margin : auto;
 		margin-bottom : 40px;
 	}
+	.mid-three li{
+		font-size : 20px;
+		width : 20px;
+		height : 20px;
+		margin : 20px 10px;
+		/* transition : 0.3s; */
+	}	
 	.copyright {
 		display : flex;
 		justify-content : center;
