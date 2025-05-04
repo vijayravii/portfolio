@@ -42,3 +42,45 @@ function navFunction() {
 function covidAlert() {
   var covid = document.getElementById("covidAlert").style.display = "none";
 }
+
+window.addEventListener('load', function () {
+  const notification = document.getElementById('updateNotification');
+  if (notification) {
+    notification.style.display = 'block';
+    setTimeout(() => {
+      notification.style.display = 'none';
+    }, 2000); // 2 seconds
+  } else {
+    console.log("Notification element not found.");
+  }
+});
+
+//Lazy loading ChatGPT
+document.addEventListener("DOMContentLoaded", function () {
+  const lazyImages = document.querySelectorAll("img.lazy");
+
+  const loadImage = (image) => {
+      image.src = image.dataset.src;
+      image.classList.remove("lazy");
+  };
+
+  const observerOptions = {
+      root: null, // Use the viewport as the root
+      rootMargin: "0px",
+      threshold: 0.1, // 10% of the image should be visible before loading
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              loadImage(entry.target);
+              observer.unobserve(entry.target);
+          }
+      });
+  }, observerOptions);
+
+  lazyImages.forEach(image => {
+      observer.observe(image);
+  });
+});
+
