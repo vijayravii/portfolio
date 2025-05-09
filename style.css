@@ -9,7 +9,13 @@
 }
 body {
 	font-family : segoe ui;
+	opacity: 0;
 }
+body.loaded {
+	/* Add an animation or a style change */
+	opacity: 1; /* Fade-in effect */
+	transition: opacity 1s ease-in-out;
+  }
 .top-logo {
 	filter: brightness(1000%);
 }
@@ -808,6 +814,62 @@ footer {
 	img.lazy[src] {
 		opacity: 1;
 	}
+
+	    /* Fullscreen loader */
+		#preloader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background-color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 9999;
+		  }
+	  
+		  /* Spinner */
+		  .spinner {
+			width: 50px;
+			height: 50px;
+			border: 6px solid #ccc;
+			border-top: 6px solid #007bff;
+			border-radius: 50%;
+			animation: spin 1s linear infinite;
+		  }
+	  
+		  @keyframes spin {
+			to { transform: rotate(360deg); }
+		  }
+	  
+		  /* Hide preloader after loaded */
+		  body.loaded #preloader {
+			display: none;
+		  }
+	  
+		  /* Hide content until loaded */
+		  body:not(.loaded) #main-content {
+			display: none;
+		  }
+		  #loader {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 9999;
+		  }
+		  
+		  body.loaded #loader {
+			display: none;
+		  }
+		  #loader {
+			display: block;
+		  }
+		  body.loaded #loader {
+			display: none;
+		  }
+		  
 	
 }
 
